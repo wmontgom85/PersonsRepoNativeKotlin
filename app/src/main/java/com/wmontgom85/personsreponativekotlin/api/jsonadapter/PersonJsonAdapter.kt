@@ -1,7 +1,7 @@
-package com.wmontgom85.personsreponative.api.jsonadapter
+package com.wmontgom85.personsreponativekotlin.api.jsonadapter
 
 import android.util.Log
-import com.wmontgom85.personsreponative.model.Person
+import com.wmontgom85.personsreponativekotlin.model.Person
 import org.json.JSONArray
 import org.json.JSONObject
 

@@ -1,7 +1,7 @@
-package com.wmontgom85.personsreponative.repo
+package com.wmontgom85.personsreponativekotlin.repo
 
 import androidx.room.*
-import com.wmontgom85.personsreponative.model.Person
+import com.wmontgom85.personsreponativekotlin.model.Person
 
 @Dao
 public interface PersonDao {

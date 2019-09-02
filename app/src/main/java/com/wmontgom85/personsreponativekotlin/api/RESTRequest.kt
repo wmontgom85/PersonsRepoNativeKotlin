@@ -1,4 +1,4 @@
-package com.wmontgom85.personsreponative.api
+package com.wmontgom85.personsreponativekotlin.api
 
 import android.net.Uri
 

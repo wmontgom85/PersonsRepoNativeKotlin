@@ -1,4 +1,4 @@
-package com.wmontgom85.personsreponative.model
+package com.wmontgom85.personsreponativekotlin.model
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

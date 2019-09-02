@@ -17,12 +17,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.wmontgom85.personsreponative.func.*
-import com.wmontgom85.personsreponative.func.newHeight
-import com.wmontgom85.personsreponative.func.newWidth
-import com.wmontgom85.personsreponative.func.px
-import com.wmontgom85.personsreponative.model.Person
-import com.wmontgom85.personsreponative.viewmodel.PersonsViewModel
+import com.wmontgom85.personsreponativekotlin.func.*
+import com.wmontgom85.personsreponativekotlin.func.newHeight
+import com.wmontgom85.personsreponativekotlin.func.newWidth
+import com.wmontgom85.personsreponativekotlin.func.px
+import com.wmontgom85.personsreponativekotlin.model.Person
+import com.wmontgom85.personsreponativekotlin.viewmodel.PersonsViewModel
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*

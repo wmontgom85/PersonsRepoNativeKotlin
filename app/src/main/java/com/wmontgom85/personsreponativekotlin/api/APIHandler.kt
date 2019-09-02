@@ -1,6 +1,6 @@
-package com.wmontgom85.personsreponative.api
+package com.wmontgom85.personsreponativekotlin.api
 
-import com.wmontgom85.personsreponative.sealed.APIResult
+import com.wmontgom85.personsreponativekotlin.sealed.APIResult
 
 import android.util.Log
 

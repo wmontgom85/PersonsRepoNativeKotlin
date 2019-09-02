@@ -1,4 +1,4 @@
-package com.wmontgom85.personsreponative.func
+package com.wmontgom85.personsreponativekotlin.func
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job

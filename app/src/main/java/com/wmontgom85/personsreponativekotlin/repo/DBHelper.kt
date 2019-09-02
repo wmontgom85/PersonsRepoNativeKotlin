@@ -1,10 +1,10 @@
-package com.wmontgom85.personsreponative.repo
+package com.wmontgom85.personsreponativekotlin.repo
 
 import android.content.Context
 import androidx.room.RoomDatabase
 import androidx.room.Database
 import androidx.room.Room
-import com.wmontgom85.personsreponative.model.Person
+import com.wmontgom85.personsreponativekotlin.model.Person
 
 @Database(entities = [
     Person::class

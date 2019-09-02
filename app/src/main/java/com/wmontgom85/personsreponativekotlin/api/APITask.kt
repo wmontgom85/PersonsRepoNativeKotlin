@@ -1,6 +1,6 @@
-package com.wmontgom85.personsreponative.api
+package com.wmontgom85.personsreponativekotlin.api
 
-import com.wmontgom85.personsreponative.api.jsonadapter.JsonAdapter
+import com.wmontgom85.personsreponativekotlin.api.jsonadapter.JsonAdapter
 
 data class APITask(
         val jsonAdapter : JsonAdapter,

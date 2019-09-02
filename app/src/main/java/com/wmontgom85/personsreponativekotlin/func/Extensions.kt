@@ -1,4 +1,4 @@
-package com.wmontgom85.personsreponative.func
+package com.wmontgom85.personsreponativekotlin.func
 
 import android.content.res.Resources
 import android.view.LayoutInflater

@@ -1,7 +1,7 @@
-package com.wmontgom85.personsreponative.api
+package com.wmontgom85.personsreponativekotlin.api
 
 import android.util.Log
-import com.wmontgom85.personsreponative.sealed.APIResult
+import com.wmontgom85.personsreponativekotlin.sealed.APIResult
 import java.io.*
 import java.net.HttpURLConnection
 import java.net.URL

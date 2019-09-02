@@ -13,10 +13,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.wmontgom85.personsreponative.func.px
-import com.wmontgom85.personsreponative.func.throttleFirst
-import com.wmontgom85.personsreponative.model.Person
-import com.wmontgom85.personsreponative.repo.DBHelper
+import com.wmontgom85.personsreponativekotlin.func.px
+import com.wmontgom85.personsreponativekotlin.func.throttleFirst
+import com.wmontgom85.personsreponativekotlin.model.Person
+import com.wmontgom85.personsreponativekotlin.repo.DBHelper
 
 import kotlinx.android.synthetic.main.activity_create_user.toolbar
 import kotlinx.android.synthetic.main.content_create_user.*
