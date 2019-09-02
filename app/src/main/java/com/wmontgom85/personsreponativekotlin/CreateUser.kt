@@ -39,9 +39,7 @@ class CreateUser : AppCompatActivity(), CoroutineScope {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_user)
-        setSupportActionBar(toolbar)
 
-        /*
         val cameraAction: (View) -> Unit = throttleFirst(350L, MainScope(), this::checkCameraPermission)
         select_avatar.setOnClickListener(cameraAction)
 
@@ -51,15 +49,11 @@ class CreateUser : AppCompatActivity(), CoroutineScope {
         val personId = intent.getLongExtra("personId", 0)
 
         if (personId > 0) {
-            // we're editing a person
-            loading_person.visibility = View.VISIBLE
-
             // load user in background thread
             getPerson(personId)
         }
-        */
     }
-/*
+
     private fun setupForm() {
         first_name.error = "Please enter a first name"
         last_name.error = "Please enter a last name"
@@ -98,6 +92,7 @@ class CreateUser : AppCompatActivity(), CoroutineScope {
             phone.setText(p.phone)
             cell.setText(p.cell)
 
+            /*
             p.avatarLarge?.let {
                 // Picasso.get().load(it).into(avatar)
                 //hideShowAvatarPlaceholder(true)
@@ -107,65 +102,62 @@ class CreateUser : AppCompatActivity(), CoroutineScope {
             } ?: run {
                 hideShowAvatarPlaceholder(false)
             }
+            */
         }
-
-        loading_person.visibility = View.GONE
     }
 
     private fun savePerson(v: View) {
-        val fn : String = first_name.text.toString()
-        val ln : String = last_name.text.toString()
-        val add : String = address.text.toString()
-        val c : String = city.text.toString()
-        val st : String = state.text.toString()
-        val pc : String = zip.text.toString()
-        val ph : String = phone.text.toString()
-        val cl : String = cell.text.toString()
+        val p = Person(
+            email.text.toString(),
+            phone.text.toString(),
+            cell.text.toString(),
+            first_name.text.toString(),
+            last_name.text.toString(),
+            address.text.toString(),
+            city.text.toString(),
+            state.text.toString(),
+            zip.text.toString(),
+            birthdate.text.toString(),
+            null,
+            null
+        )
 
-        person?.apply {
-            firstName = fn
-            lastName = ln
-            street = add
-            city = c
-            state = st
-            postcode = pc
-            phone = ph
-            cell = cl
+        person?.let {
+            if (it.id > 0) p.id = it.id
+        }
 
-            if (avatar.visibility == View.VISIBLE) {
-                avatar.drawable?.let { img ->
-                    val bm : BitmapDrawable = img as BitmapDrawable
-                    setImage(bm.bitmap)
-                }
+        /*
+        if (avatar.visibility == View.VISIBLE) {
+            avatar.drawable?.let { img ->
+                val bm : BitmapDrawable = img as BitmapDrawable
+                setImage(bm.bitmap)
             }
         }
+         */
 
         // update person in background
         launch { // coroutine on Main
+            var id : Number? = null
+
             val query = async(Dispatchers.IO) {
-                // retrieve person from db
-                person?.let { p ->
-                    DBHelper.getInstance(this@CreateUser)?.personDao()?.let { pd ->
-                        if (p._id > 0) {
-                            pd.update(p)
-                        } else {
-                            pd.insert(p)
-                        }
+                DBHelper.getInstance(this@CreateUser)?.personDao()?.let { pd ->
+                    id = when {
+                        p.id > 0 -> pd.update(p)
+                        else -> pd.insert(p)
                     }
                 }
             }
 
-
             query.await()
 
-            person?.let {
-                // return to previous activity with save flag
+            id?.let {
                 val i = Intent()
-                i.putExtra("pId", it._id)
+                i.putExtra("save_success", true)
                 setResult(NEWPERSONRESULT)
+                finish()
+            } ?: run {
+                showMessage("Whoops!", "An error occurred while ${if (p.id > 0) "updating" else "creating"} this person.")
             }
-
-            finish()
         }
     }
 
@@ -273,5 +265,4 @@ class CreateUser : AppCompatActivity(), CoroutineScope {
 
         dialog.show()
     }
-    */
 }

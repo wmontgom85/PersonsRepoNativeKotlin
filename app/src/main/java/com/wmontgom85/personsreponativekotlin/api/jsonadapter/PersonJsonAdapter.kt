@@ -21,14 +21,11 @@ class PersonJsonAdapter : JsonAdapter {
                 var city: String? = null
                 var state: String? = null
                 var zip: String? = null
-                var gender: String? = null
                 var email: String? = null
                 var phone: String? = null
                 var cell: String? = null
                 var birthdate: String? = null
                 var avatarLarge: String? = null
-                var avatarMedium: String? = null
-                var thumbnail: String? = null
 
                 if (pObj.has("name")) {
                     val name = pObj.getJSONObject("name")
@@ -46,7 +43,6 @@ class PersonJsonAdapter : JsonAdapter {
                     if (location.has("postcode")) zip = location.getString("postcode")
                 }
 
-                if (pObj.has("gender")) gender = pObj.getString("gender")
                 if (pObj.has("email")) email = pObj.getString("email")
                 if (pObj.has("phone")) phone = pObj.getString("phone")
                 if (pObj.has("cell")) cell = pObj.getString("cell")
@@ -61,16 +57,12 @@ class PersonJsonAdapter : JsonAdapter {
                     val picture = pObj.getJSONObject("picture")
 
                     if (picture.has("large")) avatarLarge = picture.getString("large")
-                    if (picture.has("medium")) avatarMedium = picture.getString("medium")
-                    if (picture.has("thumbnail")) thumbnail = picture.getString("thumbnail")
                 }
 
                 return Person(
-                    gender,
                     email,
                     phone,
                     cell,
-                    thumbnail,
                     firstName,
                     lastName,
                     street,
@@ -78,8 +70,7 @@ class PersonJsonAdapter : JsonAdapter {
                     state,
                     zip,
                     birthdate,
-                    avatarLarge,
-                    avatarMedium
+                    avatarLarge
                 )
             }
         } catch (tx: Throwable) {

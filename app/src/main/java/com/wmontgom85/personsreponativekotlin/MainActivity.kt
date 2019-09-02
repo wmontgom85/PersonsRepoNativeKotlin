@@ -201,9 +201,11 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
     public override fun onActivityResult(requestCode:Int, resultCode:Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        System.out.println("request code: $requestCode")
+        System.out.println("data " + data)
 
         if (requestCode == NEWPERSONRESULT) {
-
+            personsViewModel.getPersonsFromDB()
         }
     }
 
@@ -251,7 +253,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         val phone : TextView = v.findViewById(R.id.phone)
 
         fun populate(p : Person) {
-            personId = p._id
+            personId = p.id
 
             p.avatarLarge?.let {
                 if (it.isNotEmpty())

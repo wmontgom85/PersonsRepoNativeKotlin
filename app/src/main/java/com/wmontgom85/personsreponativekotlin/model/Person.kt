@@ -10,11 +10,9 @@ import java.io.ByteArrayOutputStream
 
 @Entity
 data class Person(
-    val gender: String? = null,
     val email: String? = null,
     val phone: String? = null,
     val cell: String? = null,
-    val thumbnail: String? = null,
     val firstName : String? = null,
     val lastName : String? = null,
     val street : String? = null,
@@ -23,10 +21,10 @@ data class Person(
     val postcode : String? = null,
     val birthdate : String? = null,
     val avatarLarge : String? = null,
-    val avatarMedium : String? = null
+    val imageBytes : ByteArray? = null
 ) {
     @PrimaryKey(autoGenerate = true)
-    var _id: Long = 0L
+    var id: Long = 0L
 
     fun buildAddress() : String {
         var line1 = ""
