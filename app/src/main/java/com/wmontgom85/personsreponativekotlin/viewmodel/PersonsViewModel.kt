@@ -38,11 +38,9 @@ class PersonsViewModel(application: Application) : AndroidViewModel(application)
         ///launch the coroutine scope
         scope.launch {
             // create the task
-            // example for when you need to parse a List of Object
-            // val type = Types.newParameterizedType(List::class.java, Person::class.java)
-            // val adapter = moshi.adapter<List<String>>(type)
-
             val task = APITask(PersonJsonAdapter(), null, "An error has occurred. Error Code PVM001")
+
+            // create the request
             val request = RESTRequest()
 
             APIHandler.apiCall(task, request).run {

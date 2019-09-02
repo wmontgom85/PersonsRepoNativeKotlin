@@ -38,7 +38,7 @@ class ConnectionProvider(
                 if (request.requestType == "POST") {
                     request.buildQuery()?.let {
                         val os = outputStream
-                        val writer = BufferedWriter(OutputStreamWriter(os, "UTF-8"))
+                        val writer = BufferedWriter(OutputStreamWriter(os, "UTF-8") as Writer)
                         writer.write(it)
                         writer.flush()
                         writer.close()
