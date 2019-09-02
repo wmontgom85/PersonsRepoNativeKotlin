@@ -8,7 +8,6 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -17,9 +16,8 @@ import com.wmontgom85.personsreponativekotlin.func.px
 import com.wmontgom85.personsreponativekotlin.func.throttleFirst
 import com.wmontgom85.personsreponativekotlin.model.Person
 import com.wmontgom85.personsreponativekotlin.repo.DBHelper
+import kotlinx.android.synthetic.main.activity_create_user.*
 
-import kotlinx.android.synthetic.main.activity_create_user.toolbar
-import kotlinx.android.synthetic.main.content_create_user.*
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
@@ -91,6 +89,8 @@ class CreateUser : AppCompatActivity(), CoroutineScope {
             zip.setText(p.postcode)
             phone.setText(p.phone)
             cell.setText(p.cell)
+            email.setText(p.email)
+            birthdate.setText(p.birthdate)
 
             /*
             p.avatarLarge?.let {
