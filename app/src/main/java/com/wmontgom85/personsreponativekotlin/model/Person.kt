@@ -9,24 +9,24 @@ import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 
 @Entity
-class Person {
+data class Person(
+    val gender: String? = null,
+    val email: String? = null,
+    val phone: String? = null,
+    val cell: String? = null,
+    val thumbnail: String? = null,
+    val firstName : String? = null,
+    val lastName : String? = null,
+    val street : String? = null,
+    val city : String? = null,
+    val state : String? = null,
+    val postcode : String? = null,
+    val birthdate : String? = null,
+    val avatarLarge : String? = null,
+    val avatarMedium : String? = null
+) {
     @PrimaryKey(autoGenerate = true)
     var _id: Long = 0L
-    var gender: String? = null
-    var email: String? = null
-    var phone: String? = null
-    var cell: String? = null
-    var thumbnail: String? = null
-    var firstName : String? = null
-    var lastName : String? = null
-    var street : String? = null
-    var city : String? = null
-    var state : String? = null
-    var postcode : String? = null
-    var birthdate : String? = null
-    var avatarLarge : String? = null
-    var avatarMedium : String? = null
-    @ColumnInfo(typeAffinity = ColumnInfo.BLOB) var image_blob : ByteArray? = null
 
     fun buildAddress() : String {
         var line1 = ""
@@ -58,28 +58,5 @@ class Person {
             line2.isNotEmpty() -> line2
             else -> ""
         }
-    }
-
-    fun setImage(img: Bitmap) {
-        try {
-            val stream = ByteArrayOutputStream()
-            img.compress(Bitmap.CompressFormat.PNG, 100, stream)
-            this.image_blob = stream.toByteArray()
-        } catch (tx: Throwable) {
-            this.image_blob = null
-        }
-    }
-
-    fun getImage() : Bitmap? {
-        image_blob?.let {
-            try {
-                return BitmapFactory.decodeByteArray(it,0, it.size)
-            } catch (tx: Throwable) {}
-        }
-        return null
-    }
-
-    fun readPerson(obj : JSONObject) {
-
     }
 }

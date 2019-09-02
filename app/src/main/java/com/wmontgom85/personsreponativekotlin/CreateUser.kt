@@ -41,6 +41,7 @@ class CreateUser : AppCompatActivity(), CoroutineScope {
         setContentView(R.layout.activity_create_user)
         setSupportActionBar(toolbar)
 
+        /*
         val cameraAction: (View) -> Unit = throttleFirst(350L, MainScope(), this::checkCameraPermission)
         select_avatar.setOnClickListener(cameraAction)
 
@@ -56,8 +57,9 @@ class CreateUser : AppCompatActivity(), CoroutineScope {
             // load user in background thread
             getPerson(personId)
         }
+        */
     }
-
+/*
     private fun setupForm() {
         first_name.error = "Please enter a first name"
         last_name.error = "Please enter a last name"
@@ -271,4 +273,5 @@ class CreateUser : AppCompatActivity(), CoroutineScope {
 
         dialog.show()
     }
+    */
 }
