@@ -42,7 +42,7 @@ class PersonsViewModel(application: Application) : AndroidViewModel(application)
             // val type = Types.newParameterizedType(List::class.java, Person::class.java)
             // val adapter = moshi.adapter<List<String>>(type)
 
-            val task = APITask(PersonJsonAdapter(), null, "An error has occurred.")
+            val task = APITask(PersonJsonAdapter(), null, "An error has occurred. Error Code PVM001")
             val request = RESTRequest()
 
             APIHandler.apiCall(task, request).run {
@@ -57,7 +57,7 @@ class PersonsViewModel(application: Application) : AndroidViewModel(application)
                     is APIResult.Error -> {
                         Log.d("1.MainActivity", "Exception - ${exception.message}")
 
-                        errorHandler.postValue("An error has occurred. Please try again.")
+                        errorHandler.postValue("An error has occurred. Please try again. Error Code PVM002")
                     }
                 }
             }
