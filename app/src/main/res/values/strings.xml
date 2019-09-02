@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Contact List</string>
+    <string name="action_settings">Clear All</string>
+
+    <string name="name_label">Name:</string>
+    <string name="address_label">Address:</string>
+    <string name="birthday_label">Birthdate:</string>
+    <string name="phone_label">Phone:</string>
+    <string name="title_activity_create_user">Create New Person</string>
+</resources>
