@@ -9,7 +9,7 @@ import kotlinx.coroutines.*
 import java.net.URL
 import kotlin.coroutines.CoroutineContext
 
-object ImageLoader : LifecycleOwner {
+object ImageLoader {
     private var url : String? = ""
 
     //create a new Job
