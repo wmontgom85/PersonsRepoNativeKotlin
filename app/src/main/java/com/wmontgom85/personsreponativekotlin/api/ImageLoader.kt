@@ -8,7 +8,7 @@ import kotlinx.coroutines.*
 import java.net.URL
 import kotlin.coroutines.CoroutineContext
 
-object ImageLoader {
+class ImageLoader {
     private var url : String? = ""
 
     //create a new Job
