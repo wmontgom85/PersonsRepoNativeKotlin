@@ -5,6 +5,8 @@ import android.animation.ValueAnimator
 import android.app.ActivityOptions
 import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
@@ -17,6 +19,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.wmontgom85.personsreponativekotlin.api.ImageLoader
 import com.wmontgom85.personsreponativekotlin.func.*
 import com.wmontgom85.personsreponativekotlin.func.newHeight
 import com.wmontgom85.personsreponativekotlin.func.newWidth
@@ -30,6 +33,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
+import java.net.URL
 import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
@@ -256,10 +260,11 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             personId = p.id
 
             p.avatarLarge?.let {
-                if (it.isNotEmpty())
-                //Picasso.get().load(it).into(avatar)
-                else
+                if (it.isNotEmpty()) {
+                    val bg = ImageLoader.get(it)?.loadInto(avatar)
+                } else {
                     avatar.setImageResource(R.mipmap.avatar)
+                }
             } ?: run {
                 avatar.setImageResource(R.mipmap.avatar)
             }

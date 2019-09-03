@@ -1,10 +1,17 @@
 package com.wmontgom85.personsreponativekotlin.func
 
+import android.content.Context
 import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import kotlin.coroutines.coroutineContext
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
     return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)

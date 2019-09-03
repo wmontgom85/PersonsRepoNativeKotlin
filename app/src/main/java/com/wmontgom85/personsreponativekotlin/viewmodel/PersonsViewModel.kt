@@ -37,11 +37,6 @@ class PersonsViewModel(application: Application) : AndroidViewModel(application)
     fun getRandomPerson() {
         ///launch the coroutine scope
         scope.launch {
-            // create the task
-            // example for when you need to parse a List of Object
-            // val type = Types.newParameterizedType(List::class.java, Person::class.java)
-            // val adapter = moshi.adapter<List<String>>(type)
-
             val task = APITask(PersonJsonAdapter(), null, "An error has occurred. Error Code PVM001")
             val request = RESTRequest()
 
