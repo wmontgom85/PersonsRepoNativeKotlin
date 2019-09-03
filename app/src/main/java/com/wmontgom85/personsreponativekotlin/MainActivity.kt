@@ -261,7 +261,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
             p.avatarLarge?.let {
                 if (it.isNotEmpty()) {
-                    val bg = ImageLoader.get(it)?.loadInto(avatar)
+                    val bg = ImageLoader.get(it).loadInto(avatar)
                 } else {
                     avatar.setImageResource(R.mipmap.avatar)
                 }
