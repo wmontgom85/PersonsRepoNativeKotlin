@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.wmontgom85.personsreponativekotlin.api.ImageLoader
 import com.wmontgom85.personsreponativekotlin.func.px
 import com.wmontgom85.personsreponativekotlin.func.throttleFirst
 import com.wmontgom85.personsreponativekotlin.model.Person
@@ -92,17 +93,25 @@ class CreateUser : AppCompatActivity(), CoroutineScope {
             email.setText(p.email)
             birthdate.setText(p.birthdate)
 
-            /*
+            // @TODO cache images
             p.avatarLarge?.let {
-                // Picasso.get().load(it).into(avatar)
-                //hideShowAvatarPlaceholder(true)
-            } ?: p.getImage()?.let {
-                avatar.setImageBitmap(it)
-                hideShowAvatarPlaceholder(true)
+                if (it.isNotEmpty()) {
+                    ImageLoader().get(it).loadInto(avatar)
+                    placeholder.visibility = View.GONE
+                    plus_icon.visibility = View.GONE
+                    avatar.visibility = View.VISIBLE
+                } else {
+                    avatar.setImageResource(R.mipmap.avatar)
+                    placeholder.visibility = View.GONE
+                    plus_icon.visibility = View.GONE
+                    avatar.visibility = View.VISIBLE
+                }
             } ?: run {
-                hideShowAvatarPlaceholder(false)
+                avatar.setImageResource(R.mipmap.avatar)
+                avatar.visibility = View.GONE
+                placeholder.visibility = View.VISIBLE
+                plus_icon.visibility = View.VISIBLE
             }
-            */
         }
     }
 
