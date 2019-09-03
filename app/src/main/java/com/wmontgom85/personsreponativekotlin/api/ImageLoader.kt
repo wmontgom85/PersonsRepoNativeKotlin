@@ -4,7 +4,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
 import android.widget.ImageView
-import androidx.lifecycle.*
 import kotlinx.coroutines.*
 import java.net.URL
 import kotlin.coroutines.CoroutineContext
@@ -20,10 +19,6 @@ object ImageLoader {
 
     //create a coroutine scope with the coroutine context
     private val scope = CoroutineScope(coroutineContext)
-
-    override fun getLifecycle(): Lifecycle {
-        return LifecycleRegistry(this)
-    }
 
     fun get(url: String) : ImageLoader {
         this.url = url
